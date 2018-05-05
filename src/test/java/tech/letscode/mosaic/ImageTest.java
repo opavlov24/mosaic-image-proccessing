@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static tech.letscode.mosaic.ImageTestUtils.load;
+import static tech.letscode.mosaic.ImageTestUtils.load4x4Image;
 
 /**
  * @author Oleg Pavlov <oleg.pavlov@aol.com>
@@ -53,6 +54,17 @@ public class ImageTest
 
         //then
         assertEquals(new Color(128, 36, 128), avgColor);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void cutSubImageShouldThrowIllegalArgumentExceptionIfSpecifiedAreaTooLarge() throws Exception
+    {
+        //given
+        BufferedImage original = load4x4Image();
+        Image image = new Image(original);
+
+        //expect
+        image.cutSubImage(0, 0, 100, 100);
     }
 
 }
