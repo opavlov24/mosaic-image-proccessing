@@ -1,6 +1,5 @@
 package tech.letscode.mosaic;
 
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
@@ -20,7 +19,7 @@ public class ImageDividerTests
         //given
         int stepY = 2, stepX = 2;
         ImageDivider divider = new ImageDivider();
-        BufferedImage original = load("4x4.png");
+        Image original = new Image(load("4x4.png"));
 
         //when
         List<Sector> sectors = new ArrayList<>();
@@ -39,7 +38,7 @@ public class ImageDividerTests
         //given
         int stepY = 6, stepX = 6;
         ImageDivider divider = new ImageDivider();
-        BufferedImage original = load("4x4.png");
+        Image original = new Image(load("4x4.png"));
 
         //when
         List<Sector> sectors = new ArrayList<>();
@@ -58,7 +57,7 @@ public class ImageDividerTests
         //given
         int stepX = 3, stepY = 3;
         ImageDivider divider = new ImageDivider();
-        BufferedImage original = load("4x4.png");
+        Image original = new Image(load("4x4.png"));
 
         //when
         List<Sector> sectors = new ArrayList<>();

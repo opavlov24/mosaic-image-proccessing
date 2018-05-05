@@ -3,6 +3,7 @@ package tech.letscode.mosaic;
 import com.google.common.math.IntMath;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.awt.image.RasterFormatException;
 import java.math.RoundingMode;
 import javax.annotation.Nonnull;
 
@@ -38,10 +39,42 @@ public class Image
         );
     }
 
+    /**
+     * Cuts a sub image in the specified area.
+     *
+     * @param coordinateX a start point on the x-axis
+     * @param coordinateY a start point on the y-axis
+     * @param width       the width of the sub image
+     * @param height      the height of the sub image
+     * @throws IllegalArgumentException if incorrect arguments are passed, for example: the specified height and
+     *                                  width are too large.
+     */
+    public Image cutSubImage(int coordinateX, int coordinateY, int width, int height)
+    {
+        try
+        {
+            return new Image(this.image.getSubimage(coordinateX, coordinateY, width, height));
+        } catch (RasterFormatException e)
+        {
+            throw new IllegalArgumentException(e);
+        }
+    }
+
     public int square()
     {
         return this.image.getWidth() * this.image.getHeight();
     }
+
+    public int height()
+    {
+        return this.image.getHeight();
+    }
+
+    public int width()
+    {
+        return this.image.getWidth();
+    }
+
 
     private int amountOfPixels()
     {
