@@ -1,14 +1,13 @@
 package tech.letscode.mosaic;
 
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
 
-import static javax.imageio.ImageIO.read;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static tech.letscode.mosaic.ImageTestUtils.load;
 
 /**
  * @author Oleg Pavlov <oleg.pavlov@aol.com>
@@ -73,10 +72,4 @@ public class ImageDividerTests
         assertEquals(1, sectors.get(3).square());
 
     }
-
-    private BufferedImage load(String filename) throws IOException
-    {
-        return read(getClass().getClassLoader().getResourceAsStream(filename));
-    }
-
 }
