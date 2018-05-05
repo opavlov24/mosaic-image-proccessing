@@ -1,12 +1,12 @@
 package tech.letscode.mosaic;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static tech.letscode.mosaic.ImageTestUtils.load;
 
 /**
  * @author Oleg Pavlov <oleg.pavlov@aol.com>
@@ -19,7 +19,7 @@ public class ImageDividerTests
         //given
         int stepY = 2, stepX = 2;
         ImageDivider divider = new ImageDivider();
-        Image original = new Image(load("4x4.png"));
+        Image original = load4x4Image();
 
         //when
         List<Sector> sectors = new ArrayList<>();
@@ -38,7 +38,7 @@ public class ImageDividerTests
         //given
         int stepY = 6, stepX = 6;
         ImageDivider divider = new ImageDivider();
-        Image original = new Image(load("4x4.png"));
+        Image original = load4x4Image();
 
         //when
         List<Sector> sectors = new ArrayList<>();
@@ -57,7 +57,7 @@ public class ImageDividerTests
         //given
         int stepX = 3, stepY = 3;
         ImageDivider divider = new ImageDivider();
-        Image original = new Image(load("4x4.png"));
+        Image original = load4x4Image();
 
         //when
         List<Sector> sectors = new ArrayList<>();
@@ -70,5 +70,10 @@ public class ImageDividerTests
         assertEquals(3, sectors.get(2).square());
         assertEquals(1, sectors.get(3).square());
 
+    }
+
+    private Image load4x4Image() throws IOException
+    {
+        return new Image(ImageTestUtils.load4x4Image());
     }
 }

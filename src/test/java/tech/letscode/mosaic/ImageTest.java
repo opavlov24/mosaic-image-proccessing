@@ -5,7 +5,6 @@ import java.awt.image.BufferedImage;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static tech.letscode.mosaic.ImageTestUtils.load;
 import static tech.letscode.mosaic.ImageTestUtils.load4x4Image;
 
 /**
@@ -17,7 +16,7 @@ public class ImageTest
     public void shouldReturnAvgColorOfSolidColors() throws Exception
     {
         //given
-        BufferedImage original = load("4x4.png");
+        BufferedImage original = load4x4Image();
         BufferedImage red = original.getSubimage(0, 0, 2, 2);
         BufferedImage blue = original.getSubimage(2, 0, 2, 2);
         BufferedImage green = original.getSubimage(0, 2, 2, 2);
@@ -46,7 +45,7 @@ public class ImageTest
     public void shouldReturnAvgColorOfTwoColors() throws Exception
     {
         //given
-        BufferedImage original = load("4x4.png");
+        BufferedImage original = load4x4Image();
         Image twoColorImage = new Image(original.getSubimage(0, 0, 4, 2)); //red and blue
 
         //when
