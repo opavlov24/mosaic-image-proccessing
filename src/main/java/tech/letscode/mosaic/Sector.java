@@ -1,7 +1,6 @@
 package tech.letscode.mosaic;
 
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
+import java.awt.Color;
 import javax.annotation.Nonnull;
 
 /**
@@ -11,7 +10,7 @@ import javax.annotation.Nonnull;
  */
 public class Sector
 {
-    private final BufferedImage image;
+    private final Image image;
 
     private final int coordinateX;
 
@@ -25,27 +24,21 @@ public class Sector
      * @param coordinateY the coordinate y of sector's location
      * @throws NullPointerException if the passed image is null
      */
-    public Sector(@Nonnull BufferedImage image, int coordinateX, int coordinateY)
+    public Sector(@Nonnull Image image, int coordinateX, int coordinateY)
     {
         this.image = image;
         this.coordinateX = coordinateX;
         this.coordinateY = coordinateY;
     }
 
-    /**
-     * Draws the sector in the specified graphics context.
-     *
-     * @param context the graphics context to draw the sector
-     * @throws NullPointerException if the specified context is null
-     */
-    public void draw(@Nonnull Graphics context)
+    public Color avgColor()
     {
-        context.drawImage(this.image, this.coordinateX, this.coordinateY, null);
+        return this.image.avgColor();
     }
 
     int square()
     {
-        return this.image.getWidth() * this.image.getHeight();
+        return this.image.square();
     }
 
     int getCoordinateX()

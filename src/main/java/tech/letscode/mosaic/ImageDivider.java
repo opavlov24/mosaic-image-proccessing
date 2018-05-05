@@ -38,7 +38,7 @@ public class ImageDivider
             {
                 currentStepX = calculateNextStepSize(image.getWidth(), lastCoordinateX, sizeStepX);
                 BufferedImage sub = image.getSubimage(lastCoordinateX, lastCoordinateY, currentStepX, currentStepY);
-                consumer.accept(new Sector(sub, lastCoordinateX, lastCoordinateY));
+                consumer.accept(new Sector(new Image(sub), lastCoordinateX, lastCoordinateY));
                 lastCoordinateX += currentStepX;
             }
             lastCoordinateY += currentStepY;
