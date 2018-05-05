@@ -42,7 +42,7 @@ public class ImageTest
     }
 
     @Test
-    public void shouldReturnAvgColorOfTwoColor() throws Exception
+    public void shouldReturnAvgColorOfTwoColors() throws Exception
     {
         //given
         BufferedImage original = load("4x4.png");
