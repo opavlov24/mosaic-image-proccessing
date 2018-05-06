@@ -30,7 +30,7 @@ public class InMemoryImageSuggester implements ImageSuggester
 
     /**
      * Suggests an appropriate image using the average color algorithm. If the specified color can not be matched
-     * with any existed images then it tries to find the image with the similar color using.
+     * with any existed images then it tries to find the image with the similar color.
      *
      * @param color color for matching
      * @return the matched image
