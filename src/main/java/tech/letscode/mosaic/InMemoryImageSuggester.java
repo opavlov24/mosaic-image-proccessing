@@ -45,13 +45,18 @@ public class InMemoryImageSuggester implements ImageSuggester
 
     private Image tryFindNearestImage(Color color)
     {
-        return iterateThought(color.getRed(), color.getRed() + 1, red ->
+        Image image = iterateThought(color.getRed(), color.getRed() + 1, red ->
                 iterateThought(color.getGreen(), color.getGreen() + 1, green ->
                         iterateThought(color.getBlue(), color.getBlue() + 1, blue ->
                                 retrieveImage(red, green, blue)
                         )
                 )
         );
+        if (image == null)
+        {
+            throw new IllegalStateException("Image has not been found. Please, check the algorithm");
+        }
+        return image;
     }
 
     private Image retrieveImage(int r, int g, int b)
